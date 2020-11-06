@@ -15,7 +15,6 @@ const Recommend = () => {
         const circles = async () => {
             const response = await axios.get("http://10.156.147.146/circles");
             setCircle(response['data']);
-            console.log(response['data']);
         };
         circles();
         setLoading(true);
@@ -37,10 +36,10 @@ const Recommend = () => {
                     return(
                         <>
                             {
-                                info.name == "PANG" || info.name == "LAPIO" || info.name == "Flosvia"?
-                                <SS.Container>
+                                info.name === "PANG" || info.name === "LAPIO" || info.name === "Flosvia"?
+                                <SS.Container key={info.id}>
                                     <SS.Container_img>
-                                    <img src={imgurl + info.background}/>
+                                    <img src={imgurl + info.background} alt="사진"/>
                                     </SS.Container_img>
 
                                     <SS.Container_explain>
@@ -52,7 +51,7 @@ const Recommend = () => {
                                                 }
                                         </SS.Circle_name>
                                         <SS.Circle_logo>
-                                            <img src={imgurl + info.logo}/>
+                                            <img src={imgurl + info.logo} alt="사진"/>
                                         </SS.Circle_logo>
                                     </SS.Container_explain>
 

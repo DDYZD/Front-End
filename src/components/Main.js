@@ -4,7 +4,7 @@ import Body from './Body';
 
 const Main = () => {
     
-
+    
     return (
         <>
             <Header/>
@@ -15,3 +15,9 @@ const Main = () => {
 
 export default Main;
 
+/*
+if(!localStorage.getItem("token")){
+    window.location.href="/login";
+    if(api로 토큰이 유효한지 확인)
+}
+*/

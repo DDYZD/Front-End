@@ -1,4 +1,4 @@
-import react from 'react';
+
 import styled from 'styled-components';
 
 //컨데이너 스타일 (동아리 목록)
@@ -23,6 +23,7 @@ export const Container = styled.div`
     padding: 0px;
     background-color: rgb(246, 246, 246);
     margin: 0 25px 40px 25px;
+    cursor: pointer;
 `;
 
 export const Container_img = styled.div`
@@ -43,6 +44,7 @@ export const Container_all = styled.div`
     color: #ffffff;
     background-color: rgb(58, 55, 55);
     margin: 0 25px 40px 25px;
+    cursor: pointer;
 `;
 
 export const Container_explain = styled.div`

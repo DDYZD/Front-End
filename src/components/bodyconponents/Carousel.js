@@ -41,7 +41,7 @@ const Carousel = () => {
                     {
                         img.map((info) => {
                             return(
-                                <img src={imgurl + info.adImage}/>
+                                <img src={imgurl + info.adImage} alt="사진" key={info.circleId}/>
                             )
                         })
                     }

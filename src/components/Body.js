@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import * as S from '../styled/mainForm/ContainerStyle'
 import Carousel from './bodyconponents/Carousel'
 import Category from './bodyconponents/Categoryconponents/Category'
-import Container from './bodyconponents/Container'
+import Containerlist from './bodyconponents/Containerconponents/Containerlist'
 import Recommend from './bodyconponents/Recommend'
 
 
@@ -23,7 +23,7 @@ const [ category, setCategory ] = useState("all");
                 <Category setCategory={setCategory}/>
                 <S.Container_box>
                     <S.Container_subbox>
-                            <Container category={category}/>
+                        <Containerlist category={category}/>
                     </S.Container_subbox>
                 </S.Container_box>
             </S.Body>

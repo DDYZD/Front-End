@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import * as S from '../styled/RLForm/authForm';
-import axios from 'axios';
-axios.defaults.withCredentials = true;
+import { loginapi } from '../modules/api';
 
 const Login = () => {
     const [userid, setUserid] = useState("");
@@ -12,32 +11,46 @@ const Login = () => {
     const setUseridText = (e) => {
         setUserid(e.target.value);
     }
+
     //비밀번호
     const setPasswordText = (e) => {
         setPassword(e.target.value);
     }
     
+    const send = (e) => {
+        if([userid, password].includes("")){
+            setError("빈 칸을 모두 입력해주세요.");
+        }
+        else{
+            login(e);
+        }
+    }
 
+    //api
     const login = (e) =>  {
         e.preventDefault();
         const loginuser = {
             id: userid,
             password: password
-        }
-        axios.post("http://10.156.147.146/login", loginuser)
+        };
+        loginapi(loginuser)
         .then(returnData => {
-            setError(returnData.data.message)
+            setError(returnData.data.message);
             localStorage.setItem("token",returnData["data"]["authorization"]);
+            window.location.href="/";
         })
-        .catch(function (errer){
+        .catch(function (error){
             setError("아이디 또는 패시워드가 일치하지않습니다.")
-        });
-    }
+        }); 
 
+    }
+    
+    
+    
     return (
         <S.AuthTemplateBlock>
             <S.Box>
-                <form onSubmit={login}>
+                <form onSubmit={send}>
                     <S.StyledInput 
                         name="userid"
                         placeholder="아이디"
