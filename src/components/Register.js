@@ -63,7 +63,7 @@ const Register = () => {
         .catch((err) => {
             setError("회원가입 실패");
         });
-        
+        window.location.href="/login";
     }
 
     return (
